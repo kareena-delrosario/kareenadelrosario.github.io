@@ -658,34 +658,7 @@ input, select, textarea {
 }
 
 
-.logo {
-    position: relative; /* Needed for absolute positioning of the pseudo-element */
-    display: inline-block; /* Allows the div to shrink to fit the image */
-}
 
-.logo-image {
-    border-radius: 200%;
-    box-shadow: inset 0 0 0 1px #ffffff;
-   width: 200px;  /* Adjust size as necessary */
-    height: 200px; /* Adjust size as necessary */
-  /*  line-height: 2.25rem; */
-    text-align: center;
-/*   width: 2.25rem; */
-    object-fit: cover;
-    display: inline-block; /* Removes any default inline spacing */
-    margin: 0 auto; /* Further ensures the image is centered */
-}
-
-/*.logo:after {
-    content: '';
-    position: absolute;
-    bottom: 0; /* Position at the bottom of the logo */
-    left: 50%; /* Start from the center of the logo */
-   /* width: 2px;  Line thickness */
-  /*  height: 50px;  Adjust based on your header's layout */
-   /* background-color: #fff;  Line color - assuming a dark background */
-  /*  transform: translateX(-50%); Center the line */
-}
 
 	.image {
 		border-radius: 4px;
