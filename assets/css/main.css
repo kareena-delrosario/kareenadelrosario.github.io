@@ -660,7 +660,7 @@ input, select, textarea {
     margin: 0 auto; /* Further ensures the image is centered */
 }
 
-.logo:before {
+.logo:after {
     content: '';
     position: absolute;
     bottom: 0; /* Position at the bottom of the logo */
