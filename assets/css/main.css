@@ -643,10 +643,10 @@ input, select, textarea {
 }
 
 .profile-image {
-    float: left; /* Positions the image to the left */
+    float: center; /* Positions the image to the left */
     width: 150px; /* Adjust as needed */
     height: 150px; /* Adjust as needed */
-    margin-right: 20px; /* Provides some space between the image and the logo */
+  /*  margin-right: 20px;  Provides some space between the image and the logo */
     border-radius: 50%; /* Optional: if you want the image to be round */
     overflow: hidden; /* Ensures the content does not spill outside the border-radius */
 }
@@ -676,15 +676,15 @@ input, select, textarea {
     margin: 0 auto; /* Further ensures the image is centered */
 }
 
-.logo:after {
+/*.logo:after {
     content: '';
     position: absolute;
     bottom: 0; /* Position at the bottom of the logo */
     left: 50%; /* Start from the center of the logo */
-    width: 2px; /* Line thickness */
-    height: 50px; /* Adjust based on your header's layout */
-    background-color: #fff; /* Line color - assuming a dark background */
-    transform: translateX(-50%); /* Center the line */
+   /* width: 2px;  Line thickness */
+  /*  height: 50px;  Adjust based on your header's layout */
+   /* background-color: #fff;  Line color - assuming a dark background */
+  /*  transform: translateX(-50%); Center the line */
 }
 
 	.image {
