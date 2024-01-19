@@ -654,13 +654,13 @@ input, select, textarea {
     height: 200px; /* Adjust size as necessary */
     line-height: 2.25rem;
     text-align: center;
-    width: 2.25rem;
+ /*   width: 2.25rem; */
     object-fit: cover;
     display: inline-block; /* Removes any default inline spacing */
     margin: 0 auto; /* Further ensures the image is centered */
 }
 
-.logo:after {
+.logo:before {
     content: '';
     position: absolute;
     bottom: 0; /* Position at the bottom of the logo */
@@ -1332,7 +1332,7 @@ input, select, textarea {
 			border-radius: 100%;
 		}
 
-			#header .logo-image :before {
+			#header .logo .icon :before {
 				font-size: 2rem;
 			}
 
