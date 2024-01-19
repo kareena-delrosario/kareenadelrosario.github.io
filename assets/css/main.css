@@ -638,14 +638,35 @@ input, select, textarea {
 
 /* Image */
 
-.logo-image {
-    border-radius: 50%; /* Makes the image round */
-    width: 200px; /* Example size */
-    height: 200px; /* Example size */
-    object-fit: cover; /* Ensures the image covers the area without distortion */
-    border: 2px solid white;  Optional: if you want a border around the image */
-   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); Optional: if you want a shadow for depth */
+#header {
+    text-align: center; /* Center the logo within the header */
 }
+
+.logo {
+    position: relative; /* Needed for absolute positioning of the pseudo-element */
+    display: inline-block; /* Allows the div to shrink to fit the image */
+}
+
+.logo-image {
+    border-radius: 50%;
+    width: 100px; /* Adjust size as necessary */
+    height: 100px; /* Adjust size as necessary */
+    object-fit: cover;
+    display: block; /* Removes any default inline spacing */
+    margin: 0 auto; /* Further ensures the image is centered */
+}
+
+.logo:after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Position at the bottom of the logo */
+    left: 50%; /* Start from the center of the logo */
+    width: 2px; /* Line thickness */
+    height: 50px; /* Adjust based on your header's layout */
+    background-color: #fff; /* Line color - assuming a dark background */
+    transform: translateX(-50%); /* Center the line */
+}
+
 	.image {
 		border-radius: 4px;
 		border: 0;
