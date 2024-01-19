@@ -642,6 +642,22 @@ input, select, textarea {
     text-align: center; /* Center the logo within the header */
 }
 
+.profile-image {
+    float: left; /* Positions the image to the left */
+    width: 150px; /* Adjust as needed */
+    height: 150px; /* Adjust as needed */
+    margin-right: 20px; /* Provides some space between the image and the logo */
+    border-radius: 50%; /* Optional: if you want the image to be round */
+    overflow: hidden; /* Ensures the content does not spill outside the border-radius */
+}
+
+.profile-image img {
+    width: 100%;
+    height: auto;
+    display: block; /* Removes any default inline spacing */
+}
+
+
 .logo {
     position: relative; /* Needed for absolute positioning of the pseudo-element */
     display: inline-block; /* Allows the div to shrink to fit the image */
