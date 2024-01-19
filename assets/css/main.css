@@ -648,7 +648,7 @@ input, select, textarea {
     height: 150px; /* Adjust as needed */
   /*  margin-right: 20px;  Provides some space between the image and the logo */
     border-radius: 50%; /* Optional: if you want the image to be round */
-    overflow: hidden; /* Ensures the content does not spill outside the border-radius */
+  /*  overflow: hidden;  Ensures the content does not spill outside the border-radius */
 }
 
 .profile-image img {
