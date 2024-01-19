@@ -65,14 +65,6 @@ input::-moz-focus-inner {
 	padding: 0;
 }
 
-.logo-image {
-    border-radius: 50%; /* Makes the image round */
-    width: 100px; /* Example size */
-    height: 100px; /* Example size */
-    object-fit: cover; /* Ensures the image covers the area without distortion */
-    border: 2px solid white; /* Optional: if you want a border around the image */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: if you want a shadow for depth */
-}
 
 input, select, textarea {
 	-moz-appearance: none;
@@ -652,6 +644,14 @@ input, select, textarea {
 		display: inline-block;
 		position: relative;
 	}
+.logo-image {
+    border-radius: 50%; /* Makes the image round */
+    width: 100px; /* Example size */
+    height: 100px; /* Example size */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border: 2px solid white; /* Optional: if you want a border around the image */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: if you want a shadow for depth */
+}
 
 		.image:before {
 			pointer-events: none;
