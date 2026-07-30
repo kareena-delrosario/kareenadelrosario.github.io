@@ -1683,3 +1683,35 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+/* =====================================================
+   Custom overrides — header bio readability
+   ===================================================== */
+@media screen and (min-width: 737px) {
+
+	/* Hold the intro to a comfortable reading column */
+	#header .content .inner {
+		max-width: 42rem;
+		margin: 0 auto;
+		padding: 2.5rem 0 1rem 0;
+	}
+
+	/* Bio paragraphs: left-aligned, normal spacing, roomier lines */
+	#header .content .inner p {
+		text-align: left;
+		letter-spacing: normal;
+		font-size: 0.95rem;
+		line-height: 1.8;
+		margin: 0 0 1.25rem 0;
+	}
+
+		#header .content .inner p:last-child {
+			margin-bottom: 0;
+		}
+
+	/* A little breathing room under the "About Me" heading */
+	#header .content .inner h2.major {
+		margin-bottom: 1.5rem;
+	}
+
+}
