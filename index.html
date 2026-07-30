@@ -1,183 +1,279 @@
-<!DOCTYPE HTML>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Kareena del Rosario</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="Kareena del Rosario — social psychologist studying emotion, dyadic interaction, psychophysiology, and morality at the University of Michigan." />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			/* Publications list — APA-style hanging indent */
-			#CV .pubs { list-style: none; margin: 0 0 1.5em 0; padding: 0; }
-			#CV .pubs li { margin: 0 0 1.1em 0; padding-left: 1.6em; text-indent: -1.6em; line-height: 1.6; }
-			#CV .pubs li strong { font-weight: 700; }
-			#CV .pub-note { opacity: 0.7; font-size: 0.9em; margin-top: 0.5em; }
-			/* Employment / education entries */
-			#CV .cv-entries { list-style: none; margin: 0 0 1.25em 0; padding: 0; }
-			#CV .cv-entries li { margin: 0 0 0.85em 0; line-height: 1.5; }
-			#CV .cv-entries .meta { display: block; opacity: 0.7; font-size: 0.9em; }
-			#CV h3 { margin-bottom: 0.5em; }
-		</style>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Kareena del Rosario</title>
+	<meta name="description" content="Kareena del Rosario — social psychologist studying emotion, dyadic interaction, psychophysiology, and morality at the University of Michigan." />
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
-				<!-- Header -->
-					<header id="header">
-						<div class="profile-image">
-							<img src="images/11070.jpeg" alt="Kareena del Rosario" />
-						</div>
+	<style>
+		:root {
+			/* ---- Palette: dusty blue + stone-greige + terracotta ----
+			   Change any of these to reskin the whole site. */
+			--panel-a:#4a5d72; --panel-b:#37475a;   /* sidebar gradient (dusty blue) */
+			--paper:#efede6;                          /* content background (stone/greige) */
+			--ink:#2b2f36; --muted:#63625c; --line:#dedbd0;
+			--accent:#a8623f;                         /* terracotta accent */
+			--link:#45596e;                           /* links on content */
+			--nav-bg:rgba(239,237,230,0.86);
+			--nav-active-bg:rgba(168,98,63,0.16); --nav-active-text:#37475a;
+			--btn-bg:#37475a; --btn-text:#ffffff;
+			--hover-bg:rgba(0,0,0,0.05);
 
-						<div class="content">
-							<div class="inner">
-								<h1>Kareena del Rosario</h1>
-								<article id="aboutme">
-									<h2 class="major">About Me</h2>
-									<p>I am a Postdoctoral Research Fellow in Social Psychology at the University of Michigan. My research centers on how internal states become interpersonal&mdash;how our emotions, moral judgments, and social perceptions shape the experiences and behaviors of the people around us. I am fascinated by how underlying feelings and judgments "leak out" through behaviors and bodily responses, and how social contexts&mdash;whether in collaborative teams, close relationships, or first encounters&mdash;shape the way people manage and express these feelings.</p>
+			--sidebar-w:310px; --maxread:46rem;
+			--f-display:"Fraunces",Georgia,serif;
+			--f-body:"IBM Plex Sans",system-ui,sans-serif;
+			--f-mono:"IBM Plex Mono",ui-monospace,monospace;
+		}
 
-									<p>To study these processes, I use a combination of field studies, in-lab and online dyadic interaction studies, and mobile app-based studies. I combine psychophysiology, behavioral measures, and natural language processing to capture how these internal states manifest through subtle social cues, pursuing questions like: How do teams work together under stress, and do they work differently with newcomers than established team members? Can our emotions unintentionally "leak out" and affect our interactions with strangers? When are our perceptions influenced by others' emotions?</p>
+		* { box-sizing:border-box; }
+		html { scroll-behavior:smooth; }
+		body {
+			margin:0; background:var(--paper); color:var(--ink);
+			font-family:var(--f-body); font-size:16px; line-height:1.65;
+			-webkit-font-smoothing:antialiased;
+		}
+		a { color:var(--link); text-underline-offset:2px; }
+		a:hover { text-decoration:underline; }
+		:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
 
-									<p>In my current work, I've been particularly interested in the influence of moral emotions on our connections with others and how morality and politics impact our relationships.</p>
-								</article>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#CV">CV</a></li>
-								<li><a href="#rtutorials">R Tutorials</a></li>
-								<li><a href="#contact">Contact</a></li>
-							</ul>
-						</nav>
-					</header>
+		/* ============ SIDEBAR ============ */
+		.sidebar {
+			position:fixed; top:0; left:0; bottom:0; width:var(--sidebar-w);
+			padding:2.6rem 1.9rem;
+			background:linear-gradient(160deg,var(--panel-a) 0%,var(--panel-b) 100%);
+			color:#eaf0f1; display:flex; flex-direction:column; overflow-y:auto;
+		}
+		.portrait {
+			width:128px; height:128px; border-radius:50%; object-fit:cover;
+			border:3px solid rgba(255,255,255,0.14); box-shadow:0 8px 30px rgba(0,0,0,0.28);
+		}
+		.sb-name { font-family:var(--f-display); font-weight:500; font-size:1.7rem;
+			line-height:1.15; margin:1.25rem 0 0.5rem; letter-spacing:0.01em; }
+		.sb-role { font-size:0.9rem; color:#c0cdd0; margin:0 0 1.1rem; }
+		.sb-role strong { color:#eaf0f1; font-weight:600; }
 
-				<!-- Main -->
-					<div id="main">
+		.signal { display:block; width:100%; height:26px; margin:0.3rem 0 1.4rem; opacity:0.9; }
+		.signal path {
+			fill:none; stroke:var(--accent); stroke-width:1.6; stroke-linecap:round;
+			stroke-dasharray:620; stroke-dashoffset:620; animation:trace 6s ease-in-out infinite;
+		}
+		@keyframes trace {
+			0%{stroke-dashoffset:620;} 45%{stroke-dashoffset:0;}
+			75%{stroke-dashoffset:0;opacity:1;} 100%{stroke-dashoffset:-620;}
+		}
 
-						<!-- CV -->
-							<article id="CV">
-								<h2 class="major">CV</h2>
-								<p>For the full details download my CV.</p>
-								<ul class="actions">
-									<!-- TODO: add your CV file as assets/cv.pdf (or update this path) -->
-									<li><a href="assets/cv.pdf" target="_blank" class="button primary icon solid fa-download">Download CV (PDF)</a></li>
-								</ul>
+		.sb-links { list-style:none; margin:auto 0 0; padding:0; font-size:0.92rem; }
+		.sb-links li { margin:0.7rem 0; display:flex; gap:0.65rem; align-items:center; }
+		.sb-links .ic { color:var(--accent); display:inline-flex; flex:none; }
+		.sb-links .ic svg { width:18px; height:18px; display:block; }
+		.sb-links a { color:#dbe6e8; text-decoration:none; word-break:break-word; }
+		.sb-links a:hover { color:#fff; text-decoration:underline; }
 
-								<h3>Employment</h3>
-								<ul class="cv-entries">
-									<li>Postdoctoral Fellow, Social Psychology, University of Michigan, 2025&ndash;present<span class="meta">Advisor: Amie M. Gordon, Ph.D.</span></li>
-								</ul>
+		/* ============ CONTENT ============ */
+		.content { margin-left:var(--sidebar-w); }
+		.topnav {
+			position:sticky; top:0; z-index:20; display:flex; flex-wrap:wrap; gap:0.35rem;
+			padding:0.85rem 3rem; background:var(--nav-bg);
+			backdrop-filter:blur(8px); border-bottom:1px solid var(--line);
+		}
+		.topnav a {
+			font-family:var(--f-mono); font-size:0.76rem; letter-spacing:0.06em;
+			text-transform:uppercase; color:var(--muted); text-decoration:none;
+			padding:0.35rem 0.7rem; border-radius:999px;
+		}
+		.topnav a:hover { color:var(--ink); background:var(--hover-bg); text-decoration:none; }
+		.topnav a.active { color:var(--nav-active-text); background:var(--nav-active-bg); }
 
-								<h3>Education</h3>
-								<ul class="cv-entries">
-									<li>Ph.D. in Social Psychology, New York University, 2019&ndash;2025<span class="meta">Advisors: Tessa V. West, Ph.D. &amp; Jay J. Van Bavel, Ph.D.</span></li>
-									<li>B.A. in Psychology, <em>Cum Laude</em>, San Francisco State University, 2016</li>
-								</ul>
+		section { padding:3.4rem 3rem; border-bottom:1px solid var(--line);
+			max-width:calc(var(--maxread) + 6rem); }
+		section:last-of-type { border-bottom:0; }
 
-								<h3>Publications</h3>
-								<ul class="pubs">
-									<li>Thorson, K.R., Gordon, A.M., Ross, K.E., <strong>del Rosario, K.S.</strong>, Prather, A.A., &amp; Mendes, W.B. (in press). A multimodal investigation of empathic stress during acute stress exposure in romantic couples: Does sleep deprivation play a role? <em>Biopsychosocial Science and Medicine.</em></li>
+		.eyebrow { font-family:var(--f-mono); font-size:0.74rem; letter-spacing:0.16em;
+			text-transform:uppercase; color:var(--accent); margin:0 0 0.9rem; }
+		.eyebrow::before { content:""; display:inline-block; width:1.6rem; height:1px;
+			background:var(--accent); vertical-align:middle; margin-right:0.6rem; }
 
-									<li>Allen, A.M., Mendes, W.B., West, T.V., <strong>del Rosario, K.S.</strong>, &amp; Brown, C.K. (in press). Alexithymia in dyadic interactions: Associations with affective and sympathetic nervous system reactivity and empathic accuracy. <em>Emotion.</em></li>
+		h2.sect { font-family:var(--f-display); font-weight:500; font-size:1.9rem;
+			line-height:1.2; margin:0 0 1.4rem; }
 
-									<li>Phlegar, S.E.*, <strong>del Rosario, K.S.*</strong>, Dumitru, O.D., &amp; West, T.V. (2026). <a href="https://www.nature.com/articles/s44271-026-00490-z" target="_blank">Teams perform worse when newcomers hold critical information than when original group members do.</a> <em>Communications Psychology.</em></li>
+		.thesis { font-family:var(--f-display); font-weight:500;
+			font-size:clamp(2rem,4vw,3rem); line-height:1.12; letter-spacing:-0.01em;
+			margin:0 0 1.6rem; max-width:22ch; }
+		.about p { max-width:var(--maxread); margin:0 0 1.15rem; }
+		.about p:last-child { margin-bottom:0; }
 
-									<li>Phlegar, S.E., <strong>del Rosario, K.S.</strong>, &amp; West, T.V. (2025). <a href="https://www.cambridge.org/core/books/abs/cambridge-handbook-of-personal-relationships/dyadic-data-analysis-current-issues-and-directions/CCA63EE3883A5E5ED7E3A80F8C403570" target="_blank">Dyadic data analysis: Current issues and directions.</a> <em>The Cambridge Handbook of Personal Relationships</em> (3rd ed.). Cambridge University Press.</li>
+		.pubs { list-style:none; margin:0; padding:0; }
+		.pub { display:grid; grid-template-columns:4.2rem 1fr; gap:1rem;
+			padding:1.15rem 0; border-top:1px solid var(--line); }
+		.pub:first-child { border-top:0; }
+		.pub .yr { font-family:var(--f-mono); font-size:0.82rem; color:var(--muted); padding-top:0.15rem; }
+		.pub .yr .press { color:var(--accent); font-size:0.72rem; display:block; letter-spacing:0.04em; }
+		.pub .cite { margin:0; line-height:1.55; }
+		.pub .cite a { font-weight:500; }
+		.pub .me { color:var(--ink); font-weight:600; border-bottom:2px solid var(--accent); }
+		.pub .jrnl { color:var(--muted); font-style:italic; }
+		.note { font-family:var(--f-mono); font-size:0.75rem; color:var(--muted); margin-top:1.4rem; }
 
-									<li><strong>del Rosario, K.S.</strong>, &amp; West, T.V. (2025). <a href="https://journals.sagepub.com/doi/full/10.1177/25152459251351286" target="_blank">A practical guide to specifying random effects in longitudinal dyadic multilevel models.</a> <em>Advances in Methods and Practices in Psychological Science.</em></li>
+		.btn { display:inline-flex; align-items:center; gap:0.5rem; background:var(--btn-bg);
+			color:var(--btn-text); font-size:0.9rem; font-weight:500; padding:0.7rem 1.25rem;
+			border-radius:8px; text-decoration:none; transition:transform 0.15s ease,filter 0.15s ease; }
+		.btn:hover { text-decoration:none; transform:translateY(-1px); filter:brightness(1.08); }
+		.cvblock { margin-top:2rem; }
+		.cvblock h3 { font-family:var(--f-mono); font-size:0.78rem; letter-spacing:0.1em;
+			text-transform:uppercase; color:var(--muted); margin:0 0 0.7rem;
+			padding-bottom:0.4rem; border-bottom:1px solid var(--line); }
+		.cvblock ul { list-style:none; margin:0 0 1.5rem; padding:0; }
+		.cvblock li { margin:0 0 0.8rem; }
+		.cvblock .meta { display:block; color:var(--muted); font-size:0.9rem; }
 
-									<li><strong>del Rosario, K.S.</strong>, West, T.V., Siegel, E.H., &amp; Mendes, W.B. (2025). <a href="https://psycnet.apa.org/record/2025-80022-001" target="_blank">Working through emotions: Sadness predicts social engagement and physiological linkage for men and disengagement for women in dyadic cooperative interactions.</a> <em>Emotion.</em></li>
+		.contact-links { list-style:none; padding:0; margin:1.4rem 0 0; display:flex; flex-wrap:wrap; gap:0.8rem; }
+		.contact-links a { font-family:var(--f-mono); font-size:0.82rem; letter-spacing:0.03em;
+			text-decoration:none; color:var(--ink); border:1px solid var(--line);
+			border-radius:8px; padding:0.6rem 1rem; }
+		.contact-links a:hover { border-color:var(--link); color:var(--link); text-decoration:none; }
 
-									<li>Robertson, C.E., <strong>del Rosario, K.S.</strong>, &amp; Van Bavel, J.J. (2024). <a href="https://www.sciencedirect.com/science/article/pii/S2352250X24001313" target="_blank">Inside the funhouse mirror factory: How social media distorts perceptions of norms.</a> <em>Current Opinion in Psychology.</em></li>
+		footer.site { padding:2rem 3rem 3rem; color:var(--muted); font-size:0.8rem; }
 
-									<li>Robertson, C.E., <strong>del Rosario, K.S.</strong>, Rathje, S., &amp; Van Bavel, J.J. (2024). <a href="https://osf.io/preprints/psyarxiv/bwp2g" target="_blank">Changing the incentive structure of social media may reduce online proxy failure and proliferation of negativity.</a> <em>Behavioral and Brain Sciences.</em></li>
+		@media (max-width:900px) {
+			.sidebar { position:static; width:auto; padding:2rem 1.5rem; }
+			.sb-links { margin-top:1.2rem; }
+			.content { margin-left:0; }
+			.topnav { padding:0.75rem 1.25rem; overflow-x:auto; }
+			section { padding:2.4rem 1.5rem; }
+			footer.site { padding:1.5rem; }
+		}
+		@media (prefers-reduced-motion:reduce) {
+			html { scroll-behavior:auto; }
+			.signal path { animation:none; stroke-dashoffset:0; }
+			.btn { transition:none; }
+		}
+	</style>
+</head>
+<body>
 
-									<li><strong>del Rosario, K.S.</strong>, West, T.V., Mendes, W.B., Kunduzi, B., Mamode, N., &amp; Gogalniceanu, P. (2024). How does surgeons' autonomic physiology vary intraoperatively? A real-time study of cardiac reactivity. <em>Annals of Surgery.</em></li>
+	<!-- ============ SIDEBAR ============ -->
+	<aside class="sidebar">
+		<img class="portrait" src="images/11070.jpeg" alt="Kareena del Rosario" />
+		<h1 class="sb-name">Kareena del Rosario</h1>
+		<p class="sb-role"><strong>Postdoctoral Research Fellow</strong><br />Social Psychology · University of Michigan</p>
 
-									<li>Van Bavel, J.J., Robertson, C.E., <strong>del Rosario, K.S.</strong>, Rasmussen, J., &amp; Rathje, S. (2023). <a href="https://psyarxiv.com/ywevq/" target="_blank">Social media and morality.</a> <em>Annual Review of Psychology.</em></li>
+		<svg class="signal" viewBox="0 0 260 26" preserveAspectRatio="none" aria-hidden="true">
+			<path d="M0,13 L60,13 L70,13 L78,5 L86,21 L94,13 L150,13 L158,13 L166,2 L172,24 L180,13 L260,13" />
+		</svg>
 
-									<li>Chen, R., <strong>del Rosario, K.S.</strong>, Lockman, A., Boehm, J., Santos, K.S., Siegel, E., Mendes, W.B., &amp; Kubzansky, L. (2022). <a href="https://www.tandfonline.com/doi/full/10.1080/17439760.2022.2070529" target="_blank">Effects of induced optimism on subjective states, physical activity, and stress reactivity.</a> <em>The Journal of Positive Psychology.</em></li>
+		<ul class="sb-links">
+			<li>
+				<span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+				<a href="mailto:kdelrosa@umich.edu">kdelrosa@umich.edu</a>
+			</li>
+			<li>
+				<span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3z"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></span>
+				<a href="https://scholar.google.com/citations?user=HoRAL5QAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+			</li>
+			<li>
+				<span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.51 11.51 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span>
+				<a href="https://github.com/kareena-delrosario" target="_blank" rel="noopener">GitHub</a>
+			</li>
+		</ul>
+	</aside>
 
-									<li>Vohs, K.D., Schmeichel, B.J., &hellip; <strong>del Rosario, K.S.</strong>, et al. (2021). <a href="https://pubmed.ncbi.nlm.nih.gov/34520296/" target="_blank">A multi-site, preregistered, paradigmatic test of the ego depletion effect.</a> <em>Psychological Science.</em></li>
+	<!-- ============ CONTENT ============ -->
+	<main class="content">
+		<nav class="topnav" aria-label="Sections">
+			<a href="#about">About</a>
+			<a href="#publications">Publications</a>
+			<a href="#cv">CV</a>
+			<a href="#tutorials">R Tutorials</a>
+			<a href="#contact">Contact</a>
+		</nav>
 
-									<li>Gordon, A.M., <strong>del Rosario, K.S.</strong>, Flores, A., Mendes, W.B., &amp; Prather, A.A. (2019). <a href="https://pubmed.ncbi.nlm.nih.gov/30640258/" target="_blank">Social rejection and sleep: A field study and experimental study exploring the reciprocal influences of rejection and sleep.</a> <em>Psychosomatic Medicine.</em></li>
-								</ul>
-								<p class="pub-note">* Denotes shared first authorship.</p>
-							</article>
+		<section id="about" class="about">
+			<p class="eyebrow">Research</p>
+			<h2 class="thesis">How internal states become interpersonal.</h2>
+			<p>I am a Postdoctoral Research Fellow in Social Psychology at the University of Michigan. My research centers on how internal states become interpersonal&mdash;how our emotions, moral judgments, and social perceptions shape the experiences and behaviors of the people around us. I am fascinated by how underlying feelings and judgments &ldquo;leak out&rdquo; through behaviors and bodily responses, and how social contexts&mdash;whether in collaborative teams, close relationships, or in first encounters&mdash;shape the way people manage and express these feelings.</p>
+			<p>To study these processes, I use a combination of field studies, in-lab and online dyadic interaction studies, and mobile app-based studies. Across these studies, I use psychophysiology, behavioral measures, and natural language processing to capture how these internal states manifest through subtle social cues, pursuing questions like: How do high- and low-status team members work together under stress? How do teams work differently with newcomers than with established team members? Can our emotions unintentionally &ldquo;leak out&rdquo; and affect our interactions with strangers, and when are our perceptions influenced by others&rsquo; emotions?</p>
+			<p>In my current work, I&rsquo;ve been particularly interested in the influence of moral emotions on our connections with others, to understand how morality and politics impact relationships.</p>
+		</section>
 
-						<!-- R Tutorials -->
-							<article id="rtutorials">
-								<h2 class="major">R Tutorials</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<p>Check out my detailed R tutorials below:</p>
-								<ul>
-									<li><a href="assets/workshop_052121.html" target="_blank">Intro to R</a></li>
-									<!-- More links to other tutorials can be added here -->
-								</ul>
-							</article>
+		<section id="publications">
+			<p class="eyebrow">Publications</p>
+			<h2 class="sect">Published &amp; in press</h2>
+			<ul class="pubs">
+				<li class="pub"><span class="yr"><span class="press">in press</span></span><p class="cite">Thorson, K.R., Gordon, A.M., Ross, K.E., <span class="me">del Rosario, K.S.</span>, Prather, A.A., &amp; Mendes, W.B. A multimodal investigation of empathic stress during acute stress exposure in romantic couples: Does sleep deprivation play a role? <span class="jrnl">Biopsychosocial Science and Medicine.</span></p></li>
+				<li class="pub"><span class="yr"><span class="press">in press</span></span><p class="cite">Allen, A.M., Mendes, W.B., West, T.V., <span class="me">del Rosario, K.S.</span>, &amp; Brown, C.K. Alexithymia in dyadic interactions: Associations with affective and sympathetic nervous system reactivity and empathic accuracy. <span class="jrnl">Emotion.</span></p></li>
+				<li class="pub"><span class="yr">2026</span><p class="cite">Phlegar, S.E.*, <span class="me">del Rosario, K.S.*</span>, Dumitru, O.D., &amp; West, T.V. <a href="https://www.nature.com/articles/s44271-026-00490-z" target="_blank" rel="noopener">Teams perform worse when newcomers hold critical information than when original group members do.</a> <span class="jrnl">Communications Psychology.</span></p></li>
+				<li class="pub"><span class="yr">2025</span><p class="cite">Phlegar, S.E., <span class="me">del Rosario, K.S.</span>, &amp; West, T.V. <a href="https://www.cambridge.org/core/books/abs/cambridge-handbook-of-personal-relationships/dyadic-data-analysis-current-issues-and-directions/CCA63EE3883A5E5ED7E3A80F8C403570" target="_blank" rel="noopener">Dyadic data analysis: Current issues and directions.</a> <span class="jrnl">The Cambridge Handbook of Personal Relationships</span> (3rd ed.). Cambridge University Press.</p></li>
+				<li class="pub"><span class="yr">2025</span><p class="cite"><span class="me">del Rosario, K.S.</span>, &amp; West, T.V. <a href="https://journals.sagepub.com/doi/full/10.1177/25152459251351286" target="_blank" rel="noopener">A practical guide to specifying random effects in longitudinal dyadic multilevel models.</a> <span class="jrnl">Advances in Methods and Practices in Psychological Science.</span></p></li>
+				<li class="pub"><span class="yr">2025</span><p class="cite"><span class="me">del Rosario, K.S.</span>, West, T.V., Siegel, E.H., &amp; Mendes, W.B. <a href="https://psycnet.apa.org/record/2025-80022-001" target="_blank" rel="noopener">Working through emotions: Sadness predicts social engagement and physiological linkage for men and disengagement for women in dyadic cooperative interactions.</a> <span class="jrnl">Emotion.</span></p></li>
+				<li class="pub"><span class="yr">2024</span><p class="cite">Robertson, C.E., <span class="me">del Rosario, K.S.</span>, &amp; Van Bavel, J.J. <a href="https://www.sciencedirect.com/science/article/pii/S2352250X24001313" target="_blank" rel="noopener">Inside the funhouse mirror factory: How social media distorts perceptions of norms.</a> <span class="jrnl">Current Opinion in Psychology.</span></p></li>
+				<li class="pub"><span class="yr">2024</span><p class="cite">Robertson, C.E., <span class="me">del Rosario, K.S.</span>, Rathje, S., &amp; Van Bavel, J.J. <a href="https://osf.io/preprints/psyarxiv/bwp2g" target="_blank" rel="noopener">Changing the incentive structure of social media may reduce online proxy failure and proliferation of negativity.</a> <span class="jrnl">Behavioral and Brain Sciences.</span></p></li>
+				<li class="pub"><span class="yr">2024</span><p class="cite"><span class="me">del Rosario, K.S.</span>, West, T.V., Mendes, W.B., Kunduzi, B., Mamode, N., &amp; Gogalniceanu, P. How does surgeons&rsquo; autonomic physiology vary intraoperatively? A real-time study of cardiac reactivity. <span class="jrnl">Annals of Surgery.</span></p></li>
+				<li class="pub"><span class="yr">2023</span><p class="cite">Van Bavel, J.J., Robertson, C.E., <span class="me">del Rosario, K.S.</span>, Rasmussen, J., &amp; Rathje, S. <a href="https://psyarxiv.com/ywevq/" target="_blank" rel="noopener">Social media and morality.</a> <span class="jrnl">Annual Review of Psychology.</span></p></li>
+				<li class="pub"><span class="yr">2022</span><p class="cite">Chen, R., <span class="me">del Rosario, K.S.</span>, Lockman, A., Boehm, J., Santos, K.S., Siegel, E., Mendes, W.B., &amp; Kubzansky, L. <a href="https://www.tandfonline.com/doi/full/10.1080/17439760.2022.2070529" target="_blank" rel="noopener">Effects of induced optimism on subjective states, physical activity, and stress reactivity.</a> <span class="jrnl">The Journal of Positive Psychology.</span></p></li>
+				<li class="pub"><span class="yr">2021</span><p class="cite">Vohs, K.D., Schmeichel, B.J., &hellip; <span class="me">del Rosario, K.S.</span>, et al. <a href="https://pubmed.ncbi.nlm.nih.gov/34520296/" target="_blank" rel="noopener">A multi-site, preregistered, paradigmatic test of the ego depletion effect.</a> <span class="jrnl">Psychological Science.</span></p></li>
+				<li class="pub"><span class="yr">2019</span><p class="cite">Gordon, A.M., <span class="me">del Rosario, K.S.</span>, Flores, A., Mendes, W.B., &amp; Prather, A.A. <a href="https://pubmed.ncbi.nlm.nih.gov/30640258/" target="_blank" rel="noopener">Social rejection and sleep: A field study and experimental study exploring the reciprocal influences of rejection and sleep.</a> <span class="jrnl">Psychosomatic Medicine.</span></p></li>
+			</ul>
+			<p class="note">* denotes shared first authorship</p>
+		</section>
 
-						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<!--
-									TODO: This form needs a backend to actually send mail (GitHub Pages is static).
-									Easiest option: create a free form at https://formspree.io, then replace
-									YOUR_FORM_ID below with the ID it gives you. Formspree keeps your email
-									address hidden. Until then, the form will not deliver messages.
-								-->
-								<form method="post" action="https://formspree.io/f/YOUR_FORM_ID">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="email" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
-								<ul class="icons">
-									<li><a href="mailto:kdelrosa@umich.edu" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-									<li><a href="https://scholar.google.com/citations?user=HoRAL5QAAAAJ&amp;hl=en" target="_blank" class="icon solid fa-graduation-cap"><span class="label">Google Scholar</span></a></li>
-									<li><a href="https://github.com/kareena-delrosario" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-									<!-- Add more (LinkedIn, Bluesky, ORCID, etc.) by copying a line above and swapping the fa-* icon and href -->
-								</ul>
-							</article>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; Kareena del Rosario. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-					</footer>
-
+		<section id="cv">
+			<p class="eyebrow">Curriculum Vitae</p>
+			<h2 class="sect">Background</h2>
+			<!-- Add your CV as assets/cv.pdf (or change this path) -->
+			<a class="btn" href="assets/cv.pdf" target="_blank" rel="noopener">Download CV (PDF) &darr;</a>
+			<div class="cvblock">
+				<h3>Employment</h3>
+				<ul>
+					<li>Postdoctoral Fellow, Social Psychology, University of Michigan, 2025&ndash;present<span class="meta">Advisor: Amie M. Gordon, Ph.D.</span></li>
+				</ul>
+				<h3>Education</h3>
+				<ul>
+					<li>Ph.D. in Social Psychology, New York University, 2019&ndash;2025<span class="meta">Advisors: Tessa V. West, Ph.D. &amp; Jay J. Van Bavel, Ph.D.</span></li>
+					<li>B.A. in Psychology, <em>Cum Laude</em>, San Francisco State University, 2016</li>
+				</ul>
 			</div>
+		</section>
 
-		<!-- BG -->
-			<div id="bg"></div>
+		<section id="tutorials">
+			<p class="eyebrow">Teaching resources</p>
+			<h2 class="sect">R Tutorials</h2>
+			<p>Detailed, self-contained walkthroughs for getting started with R.</p>
+			<p><a class="btn" href="assets/workshop_052121.html" target="_blank" rel="noopener">Intro to R &rarr;</a></p>
+		</section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<section id="contact">
+			<p class="eyebrow">Contact</p>
+			<h2 class="sect">Get in touch</h2>
+			<p>The best way to reach me is by email. I&rsquo;m always glad to hear from potential collaborators and students.</p>
+			<ul class="contact-links">
+				<li><a href="mailto:kdelrosa@umich.edu">kdelrosa@umich.edu</a></li>
+				<li><a href="https://scholar.google.com/citations?user=HoRAL5QAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
+				<li><a href="https://github.com/kareena-delrosario" target="_blank" rel="noopener">GitHub</a></li>
+			</ul>
+		</section>
 
-	</body>
+		<footer class="site">&copy; Kareena del Rosario. Built with plain HTML &amp; CSS on GitHub Pages.</footer>
+	</main>
+
+	<script>
+		// Highlight the nav item for the section currently in view.
+		const links = Array.from(document.querySelectorAll('.topnav a'));
+		const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+		const obs = new IntersectionObserver((entries) => {
+			entries.forEach(e => {
+				if (e.isIntersecting) {
+					links.forEach(a => a.classList.remove('active'));
+					const a = map.get(e.target.id);
+					if (a) a.classList.add('active');
+				}
+			});
+		}, { rootMargin:'-45% 0px -50% 0px', threshold:0 });
+		document.querySelectorAll('section[id]').forEach(s => obs.observe(s));
+	</script>
+</body>
 </html>
