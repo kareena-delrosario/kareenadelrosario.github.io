@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="blue">
+<html lang="en">
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,53 +11,19 @@
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
 	<style>
-		/* ============================================================
-		   PALETTES — each block just resets the same variables.
-		   To ship one, delete the switcher and keep one block's values
-		   in :root.
-		   ============================================================ */
-		:root, [data-theme="blue"] {
-			--panel-a:#4a5d72; --panel-b:#37475a;   /* dusty blue */
-			--paper:#f0eadd;                          /* oat */
-			--ink:#2b2f36; --muted:#63605a; --line:#e1d9c9;
-			--accent:#a8623f; --link:#45596e;
-			--nav-bg:rgba(240,234,221,0.86);
+		:root {
+			/* ---- Palette: dusty blue + stone-greige + terracotta ----
+			   Change any of these to reskin the whole site. */
+			--panel-a:#4a5d72; --panel-b:#37475a;   /* sidebar gradient (dusty blue) */
+			--paper:#efede6;                          /* content background (stone/greige) */
+			--ink:#2b2f36; --muted:#63625c; --line:#dedbd0;
+			--accent:#a8623f;                         /* terracotta accent */
+			--link:#45596e;                           /* links on content */
+			--nav-bg:rgba(239,237,230,0.86);
 			--nav-active-bg:rgba(168,98,63,0.16); --nav-active-text:#37475a;
 			--btn-bg:#37475a; --btn-text:#ffffff;
 			--hover-bg:rgba(0,0,0,0.05);
-		}
-		[data-theme="burgundy"] {
-			--panel-a:#5b2230; --panel-b:#3c1620;    /* burgundy */
-			--paper:#f4ece7;                          /* blush cream */
-			--ink:#2c2126; --muted:#7c6a6a; --line:#e7dad3;
-			--accent:#b0894a; --link:#7c2f3d;
-			--nav-bg:rgba(244,236,231,0.86);
-			--nav-active-bg:rgba(176,137,74,0.18); --nav-active-text:#3c1620;
-			--btn-bg:#5b2230; --btn-text:#ffffff;
-			--hover-bg:rgba(0,0,0,0.05);
-		}
-		[data-theme="ink"] {
-			--panel-a:#10161f; --panel-b:#0b1017;     /* near-navy */
-			--paper:#151b24;                           /* dark content */
-			--ink:#e7e4dc; --muted:#98a1ac; --line:#2a323d;
-			--accent:#c9a15a; --link:#9db8c9;
-			--nav-bg:rgba(21,27,36,0.86);
-			--nav-active-bg:rgba(201,161,90,0.18); --nav-active-text:#e7e4dc;
-			--btn-bg:#c9a15a; --btn-text:#171c24;
-			--hover-bg:rgba(255,255,255,0.07);
-		}
-		[data-theme="sage"] {
-			--panel-a:#33463c; --panel-b:#26362e;     /* forest/sage */
-			--paper:#efede6;                           /* stone/greige */
-			--ink:#262a27; --muted:#6a6f66; --line:#dedbd0;
-			--accent:#b0824a; --link:#3c5347;
-			--nav-bg:rgba(239,237,230,0.86);
-			--nav-active-bg:rgba(176,130,74,0.18); --nav-active-text:#26362e;
-			--btn-bg:#26362e; --btn-text:#ffffff;
-			--hover-bg:rgba(0,0,0,0.05);
-		}
 
-		:root {
 			--sidebar-w:310px; --maxread:46rem;
 			--f-display:"Fraunces",Georgia,serif;
 			--f-body:"IBM Plex Sans",system-ui,sans-serif;
@@ -70,25 +36,10 @@
 			margin:0; background:var(--paper); color:var(--ink);
 			font-family:var(--f-body); font-size:16px; line-height:1.65;
 			-webkit-font-smoothing:antialiased;
-			transition:background 0.35s ease, color 0.35s ease;
 		}
 		a { color:var(--link); text-underline-offset:2px; }
 		a:hover { text-decoration:underline; }
 		:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
-
-		/* ---- palette switcher (preview only) ---- */
-		.picker {
-			position:fixed; top:12px; right:12px; z-index:60;
-			display:flex; gap:4px; padding:5px;
-			background:rgba(18,20,24,0.6); backdrop-filter:blur(8px);
-			border-radius:999px;
-		}
-		.picker button {
-			font-family:var(--f-mono); font-size:0.66rem; letter-spacing:0.04em;
-			text-transform:uppercase; border:0; cursor:pointer;
-			padding:6px 11px; border-radius:999px; background:transparent; color:#fff;
-		}
-		.picker button[aria-pressed="true"] { background:#fff; color:#15181d; }
 
 		/* ============ SIDEBAR ============ */
 		.sidebar {
@@ -96,7 +47,6 @@
 			padding:2.6rem 1.9rem;
 			background:linear-gradient(160deg,var(--panel-a) 0%,var(--panel-b) 100%);
 			color:#eaf0f1; display:flex; flex-direction:column; overflow-y:auto;
-			transition:background 0.35s ease;
 		}
 		.portrait {
 			width:128px; height:128px; border-radius:50%; object-fit:cover;
@@ -196,29 +146,19 @@
 			.topnav { padding:0.75rem 1.25rem; overflow-x:auto; }
 			section { padding:2.4rem 1.5rem; }
 			footer.site { padding:1.5rem; }
-			.picker { top:auto; bottom:12px; right:12px; }
 		}
 		@media (prefers-reduced-motion:reduce) {
 			html { scroll-behavior:auto; }
 			.signal path { animation:none; stroke-dashoffset:0; }
-			.btn, body, .sidebar { transition:none; }
+			.btn { transition:none; }
 		}
 	</style>
 </head>
 <body>
 
-	<!-- palette switcher — remove this block once you pick one -->
-	<div class="picker" role="group" aria-label="Preview palette">
-		<button data-t="blue" aria-pressed="true" onclick="setTheme('blue')">Dusty Blue</button>
-		<button data-t="burgundy" aria-pressed="false" onclick="setTheme('burgundy')">Burgundy</button>
-		<button data-t="ink" aria-pressed="false" onclick="setTheme('ink')">Ink</button>
-		<button data-t="sage" aria-pressed="false" onclick="setTheme('sage')">Sage</button>
-	</div>
-
 	<!-- ============ SIDEBAR ============ -->
 	<aside class="sidebar">
-		<!-- Absolute URL so the preview shows your photo; for your repo you can use images/11070.jpeg -->
-		<img class="portrait" src="https://raw.githubusercontent.com/kareena-delrosario/kareenadelrosario.github.io/main/images/11070.jpeg" alt="Kareena del Rosario" />
+		<img class="portrait" src="images/11070.jpeg" alt="Kareena del Rosario" />
 		<h1 class="sb-name">Kareena del Rosario</h1>
 		<p class="sb-role"><strong>Postdoctoral Research Fellow</strong><br />Social Psychology · University of Michigan</p>
 
@@ -284,6 +224,7 @@
 		<section id="cv">
 			<p class="eyebrow">Curriculum Vitae</p>
 			<h2 class="sect">Background</h2>
+			<!-- Add your CV as assets/cv.pdf (or change this path) -->
 			<a class="btn" href="assets/cv.pdf" target="_blank" rel="noopener">Download CV (PDF) &darr;</a>
 			<div class="cvblock">
 				<h3>Employment</h3>
@@ -320,11 +261,7 @@
 	</main>
 
 	<script>
-		function setTheme(t){
-			document.documentElement.dataset.theme = t;
-			document.querySelectorAll('.picker button').forEach(b =>
-				b.setAttribute('aria-pressed', String(b.dataset.t === t)));
-		}
+		// Highlight the nav item for the section currently in view.
 		const links = Array.from(document.querySelectorAll('.topnav a'));
 		const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
 		const obs = new IntersectionObserver((entries) => {
